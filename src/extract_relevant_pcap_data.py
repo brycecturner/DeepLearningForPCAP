@@ -1,5 +1,7 @@
 import pyshark
 import tensorflow as tf
+import numpy as np
+import re
 
 from ip_metadata import *
 
@@ -15,9 +17,11 @@ def extract_relevant_DNS_pcap_data(pcap_file, max_packets = None):
     dest_ip =[]
 
     for packet in cap:
-        
+
         if 'IP' in packet and 'DNS' in packet:
-    
+            if packet_count % 100000 == 0 and packet_count>0:
+                print(packet_count)
+        
             packet_tensor = tf.io.decode_raw(packet.get_raw_packet(), out_type = tf.uint8)
             transport_layer_str= packet.transport_layer
 
@@ -34,14 +38,18 @@ def extract_relevant_DNS_pcap_data(pcap_file, max_packets = None):
 
 
     # Tuning Raw-Packet Tensors to ensure same size 
-    max_length = (max(all_lengths))
-    # all_padded_tensors = [tf.pad(i, paddings = [[0, max_length - tf.shape(i)[0]]]) for i in all_pkt_tensors]
+    max_length = 2050
+    all_padded_tensors = [tf.pad(i, paddings = [[0, max_length - tf.shape(i)[0]]]) for i in all_pkt_tensors]
 
-    # pcap_tensor = tf.stack(all_padded_tensors, axis=0)
+    pcap_tensor = tf.stack(all_padded_tensors, axis=0).numpy()
     
     cap.close()
+    out_file = re.sub("all_filtered_dns", "file_tensors",  re.sub("pcap", "npy", pcap_file))
+    
+    with open(out_file  , 'wb') as f:
+        np.save(f, pcap_tensor)
 
-    return all_pkt_tensors, max_length, all_transport_layers, src_ip, dest_ip
+    return all_padded_tensors, max_length, all_transport_layers, src_ip, dest_ip
 
 if __name__ == "__main__":
     test_data = "D:\\Projects\\DeepLearningForPCAP\\data\\isot_app_and_botnet_dataset\\all_filtered_dns\\init_dns_only.pcap"

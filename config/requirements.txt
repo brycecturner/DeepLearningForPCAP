@@ -1,2 +1,4 @@
 pyshark
 tensorflow
+scikit-learn
+pandas
