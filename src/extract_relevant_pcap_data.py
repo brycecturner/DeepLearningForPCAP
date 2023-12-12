@@ -1,3 +1,6 @@
+import sys
+sys.path.append("/usr/local/lib/python3.10/dist-packages/")
+
 import pyshark
 import tensorflow as tf
 import numpy as np
@@ -44,12 +47,18 @@ def extract_relevant_DNS_pcap_data(pcap_file, max_packets = None):
     pcap_tensor = tf.stack(all_padded_tensors, axis=0).numpy()
     
     cap.close()
-    out_file = re.sub("all_filtered_dns", "file_tensors",  re.sub("pcap", "npy", pcap_file))
     
+    out_file = re.sub("all_filtered_dns", "file_tensors",  re.sub("pcap", "npy", pcap_file))
+
     with open(out_file  , 'wb') as f:
         np.save(f, pcap_tensor)
+    
+    traffic_data = [f"{src} -> {dest}" for src, dest in zip(src_ip, dest_ip)]
+    with open(re.sub(".npy", "_traffic_data.npy", out_file), 'wb') as f:
+      np.save(f, np.array(traffic_data))
 
-    return all_padded_tensors, max_length, all_transport_layers, src_ip, dest_ip
+      
+    #return all_padded_tensors, max_length, all_transport_layers, src_ip, dest_ip
 
 if __name__ == "__main__":
     test_data = "D:\\Projects\\DeepLearningForPCAP\\data\\isot_app_and_botnet_dataset\\all_filtered_dns\\init_dns_only.pcap"
