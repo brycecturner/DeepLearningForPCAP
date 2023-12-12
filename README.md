@@ -19,6 +19,9 @@ The results are very good, although I cannot figure out exactly why.  I have hig
 - Google Colab Notebook: https://colab.research.google.com/drive/1eC2cxiwLtYlFknz2mi2c4aHhNQbPqELg#scrollTo=7ArbUTS22_PU
 - Link to Full Data: https://onlineacademiccommunity.uvic.ca/isot/2022/11/27/botnet-and-ransomware-detection-datasets/
 
+# Longer Report
+The longer report is written in the notebook "cnns_for_botnet_classification.ipynb"
+
 # Data Source
 The data for the project was downloaded from the University of Victoria's Website here
 - https://onlineacademiccommunity.uvic.ca/isot/datasets/
