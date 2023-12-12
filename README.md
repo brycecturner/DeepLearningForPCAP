@@ -12,10 +12,12 @@ The model I constructed was 1-dimensional Convolutional Neural Net (CNN), where 
 
 The results are very good, although I cannot figure out exactly why.  I have high accuracy (99%) on all test samples. 
 
-
-# Youtube Videos for Final Class
-- Short Video: 
-- Long Video: 
+# Important Links
+- Short Video (5 Min): https://youtu.be/IFmV5LYNvmI
+- Long Video (15 Min): https://youtu.be/k-6FbmIZvYg
+- Github Project : https://github.com/brycecturner/DeepLearningForPCAP
+- Google Colab Notebook: https://colab.research.google.com/drive/1eC2cxiwLtYlFknz2mi2c4aHhNQbPqELg#scrollTo=7ArbUTS22_PU
+- Link to Full Data: https://onlineacademiccommunity.uvic.ca/isot/2022/11/27/botnet-and-ransomware-detection-datasets/
 
 # Data Source
 The data for the project was downloaded from the University of Victoria's Website here
