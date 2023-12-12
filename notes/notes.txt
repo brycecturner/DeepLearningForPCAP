@@ -1,8 +1,0 @@
-I am only extracting DNS data
-This is basically because I don't understand the rest of the traffic but I think its fine for the purposes of this project.
-DNS typically uses UDP but may use TCP if the packets are too big for UDP. 
-
-I filtered out the traffic to JUST look at DNS packets. I did this manipulating inside of wireshark, which was easier 
-  and faster than doing it via pyshark
-
-  I am excluding the ips that aren't explicitly accounted for in the pdf document. I may be misunderstanding something but at this point I'm moving forward.

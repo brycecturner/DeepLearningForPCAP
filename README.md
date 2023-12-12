@@ -1,6 +1,9 @@
 # DeepLearningForPCAP
 For my final project for my Deep Learning Class CSCI-E89 at the Harvard Extention School
 
+# Youtube Videos for Final Class
+- Short Video: 
+- Long Video: 
 
 # Data Source
 The data for the project was downloaded from the University of Victoria's Website here
