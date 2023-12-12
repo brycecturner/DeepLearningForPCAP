@@ -27,8 +27,3 @@ This dataset looks at all internet traffic, but for my work I focus only on the 
 
 # Data Description
 https://onlineacademiccommunity.uvic.ca/isot/wp-content/uploads/sites/7295/2023/03/ISOT-HTTP-Botnet-Dataset.pdf
-
-# PCAP Manipulation
-I utilize the library PyPCAPKit to work with the PCAP data included in the dataset.
-- pypi info: https://pypi.org/project/pypcapkit/0.11.0/#documentation
-- 
